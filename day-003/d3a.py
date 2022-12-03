@@ -18,7 +18,7 @@ c.rule(f"Advent of Code {YEAR}-{DAY}{PART}")
 parsed = [(i[:len(i)//2], i[len(i)//2:]) for i in data.strip().split("\n")]
 common_items = [next(iter((set(j[0]) & set(j[1])))) for j in parsed]
 priorities = [string.ascii_letters.index(
-    k)+1 for k in common_items if k.islower]
+    k)+1 for k in common_items]
 
 answer = sum(priorities)
 print(answer)
