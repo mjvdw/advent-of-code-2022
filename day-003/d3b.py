@@ -1,8 +1,9 @@
-from rich.console import Console
-from aocd import get_data, submit
-import time
 import string
-from enum import Enum, auto, IntEnum
+import time
+from enum import Enum, IntEnum, auto
+
+from aocd import get_data, submit
+from rich.console import Console
 
 YEAR = 2022
 DAY = 3

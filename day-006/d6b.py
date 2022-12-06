@@ -1,28 +1,25 @@
-import string
-import time
-from enum import Enum, IntEnum, auto
-
 from aocd import get_data, submit
 from rich.console import Console
 
 YEAR = 2022
-DAY = 3
-PART = "a"
+DAY = 6
+PART = "b"
 
 
 c = Console()
-start_time = time.perf_counter()
 data = get_data(year=YEAR, day=DAY)
 c.rule(f"Advent of Code {YEAR}-{DAY}{PART}")
 ####################################################################################
 
-parsed = [(i[:len(i)//2], i[len(i)//2:]) for i in data.strip().split("\n")]
-common_items = [next(iter((set(j[0]) & set(j[1])))) for j in parsed]
-priorities = [string.ascii_letters.index(
-    k)+1 for k in common_items]
+answer = 0
+parsed = [*data]
 
-answer = sum(priorities)
-print(answer)
+for i in range(13, len(parsed)+1):
+    unique = set([p for p in parsed[i-14:i]])
+    if len(unique) == 14:
+        answer = i
+        break
+
 
 ####################################################################################
 c.rule("Finished")
