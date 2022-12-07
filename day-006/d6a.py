@@ -15,7 +15,7 @@ answer = 0
 parsed = [*data]
 
 for i in range(3, len(parsed)+1):
-    unique = set([p for p in parsed[i-4:i]])
+    unique = set(parsed[i-4:i])
     if len(unique) == 4:
         answer = i
         break

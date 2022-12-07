@@ -3,7 +3,7 @@ from rich.console import Console
 
 YEAR = 2022
 DAY = 5
-PART = "a"
+PART = "b"
 
 
 c = Console()
@@ -46,7 +46,6 @@ moves = [x.split(" ")[1::2] for x in parsed_moves]
 for move in moves:
     num, start, dest = int(move[0]), int(move[1])-1, int(move[2])-1
     stack_to_move = positions[start][:num]
-    stack_to_move.reverse()
     positions[dest] = stack_to_move + positions[dest]
     positions[start] = positions[start][num:]
 
